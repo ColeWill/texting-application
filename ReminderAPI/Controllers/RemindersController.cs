@@ -72,5 +72,31 @@ namespace ReminderApi.Controllers
         return StatusCode(500, $"An error occurred while creating the reminder: {ex.Message}");
       }
     }
+
+    // PUT: api/reminder/5
+    [HttpPut("{id}")]
+    public async Task<IActionResult> UpdateReminder(int id, UpdateReminderDto updateReminderDto)
+    {
+      if (!ModelState.IsValid)
+      {
+        return BadRequest(ModelState);
+      }
+
+      try
+      {
+        var updatedReminder = await _reminderService.UpdateReminderAsync(id, updateReminderDto);
+
+        if (updatedReminder == null)
+        {
+          return NotFound($"Reminder with ID {id} not found.");
+        }
+
+        return Ok(updatedReminder);
+      }
+      catch (Exception ex)
+      {
+        return StatusCode(500, $"An error occurred while updating the reminder: {ex.Message}");
+      }
+    }
   }
 }
