@@ -2,14 +2,15 @@ using Microsoft.Extensions.Primitives;
 
 namespace ReminderApi.Models
 {
-  public class ReminderApi
+  public class Reminder
   {
     public int Id { get; set; }
     public string Title { get; set; } = string.Empty;
     public string Message { get; set; } = string.Empty;
     public string RecipientPhoneNumber { get; set; } = string.Empty;
     public string SenderPhoneNumber { get; set; } = string.Empty;
-    public DateTime ScheduledDateTime { get; set; } = DateTime.UtcNow;
+    public DateTime ScheduledDateTime { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public bool IsCompleted { get; set; } = false;
     public ReminderType Type { get; set; }
   }
@@ -26,7 +27,7 @@ namespace ReminderApi.Models
     public string Message { get; set; } = string.Empty;
     public string RecipientPhoneNumber { get; set; } = string.Empty;
     public string SenderPhoneNumber { get; set; } = string.Empty;
-    public DateTime SchedultedDateTime { get; set; }
+    public DateTime ScheduledDateTime { get; set; }
     public ReminderType Type { get; set; }
   }
 
