@@ -21,6 +21,52 @@ namespace ReminderApi.Services
     {
       _reminders = new List<Reminder>();
       _nextId = 1;
+      LoadDummyData();
+    }
+
+    private void LoadDummyData()
+    {
+      var dummyReminders = new List<Reminder>
+      {
+        new Reminder
+        {
+          Id = _nextId++,
+          Title = "Doctor Appointment",
+          Message = "Don't forget your annual checkup at 2:00 PM",
+          RecipientPhoneNumber = "1234567890",
+          SenderPhoneNumber = "1234567890",
+          ScheduledDateTime = DateTime.UtcNow.AddDays(1),
+          CreatedAt = DateTime.UtcNow.AddHours(-2),
+          Type = ReminderType.SelfReminder,
+          IsCompleted = false,
+        },
+        new Reminder
+        {
+          Id = _nextId++,
+          Title = "Take Medication",
+          Message = "Time for your evening medication",
+          RecipientPhoneNumber = "+1234567890",
+          SenderPhoneNumber = "+1234567890",
+          ScheduledDateTime = DateTime.UtcNow.AddHours(4),
+          CreatedAt = DateTime.UtcNow.AddHours(-1),
+          Type = ReminderType.SelfReminder,
+          IsCompleted = false,
+        },
+        new Reminder
+        {
+          Id = _nextId++,
+          Title = "Meeting Reminder",
+          Message = "Team standup meeting in Conference Room A",
+          RecipientPhoneNumber = "+1987654321",
+          SenderPhoneNumber = "+1234567890",
+          ScheduledDateTime = DateTime.UtcNow.AddDays(2).AddHours(9),
+          CreatedAt = DateTime.UtcNow.AddMinutes(-30),
+          Type = ReminderType.OtherReminder,
+          IsCompleted = false,
+        },
+      };
+
+      _reminders.AddRange(dummyReminders);
     }
 
     public Task<IEnumerable<Reminder>> GetAllRemindersAsync()
