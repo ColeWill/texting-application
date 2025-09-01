@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using Microsoft.AspNetCore.Mvc;
 using ReminderApi.Models;
 using ReminderApi.Services;
@@ -98,5 +99,25 @@ namespace ReminderApi.Controllers
         return StatusCode(500, $"An error occurred while updating the reminder: {ex.Message}");
       }
     }
-  }
+
+    // DELETE: api/reminders/5
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteReminder(int id)
+    {
+      try
+      {
+        var success = await _reminderService.DeleteReminderAsync(id);
+        if (!success)
+        {
+          return NotFound($"Reminder with ID {id} not found");
+        }
+
+        return NoContent();
+      }
+      catch (Exception ex)
+      {
+        return StatusCode(500, $"An error occurred while deleting the reminder: {ex.Message}");
+      }
+    }
+  } // Controller
 }
