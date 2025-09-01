@@ -7,6 +7,7 @@ namespace ReminderApi.Services
   {
     Task<IEnumerable<Reminder>> GetAllRemindersAsync();
     Task<Reminder?> GetReminderByIdAsync(int id);
+    Task<Reminder> CreateReminderAsync(CreateReminderDto createReminderDto);
     Task<Reminder?> UpdateReminderAsync(int id, UpdateReminderDto updateReminderDto);
     Task<bool> DeleteReminderAsync(int id);
     Task<IEnumerable<Reminder>> GetRemindersByPhoneNumberAsync(string phoneNumber);
