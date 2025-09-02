@@ -1,0 +1,2 @@
+echo "Running eslint ✅ and prettier 🚿🧼 pre-commit."
+npm run lint && npm run prettier
