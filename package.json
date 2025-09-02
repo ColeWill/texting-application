@@ -126,7 +126,11 @@
     "typescript": "5.8.3"
   },
   "lint-staged": {
-    "*.{js,json,css,scss,less,md,ts,html,component.html}": [
+    "*.{ts}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{js,json,css,scss,less,md,html,component.html}": [
       "prettier --write"
     ]
   }
