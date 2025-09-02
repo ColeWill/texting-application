@@ -20,6 +20,8 @@ export default [{
         "src/setupJest.ts",
         "src/jestGlobalMocks.ts",
         "src/environments",
+        "jest.config.ts",
+        "setup-jest.ts"
     ],
 }, {
     files: ["**/*.js"],
