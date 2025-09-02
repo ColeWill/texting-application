@@ -1,8 +1,8 @@
 {
-  "name": "angular-starter",
+  "name": "texting-app",
   "version": "0.0.1",
-  "description": "The Angular starter / boilerplate project to start a new enterprise project",
-  "author": "Wilfried Lucha <wilfried@lucha.at>",
+  "description": "Text reminder application, Angular Front-End, ASP.NET Core Backend, and built with an Angular Starter Repo ",
+  "author": "Cole Williams <wcole2222@gmail.com>",
   "homepage": "https://lucha.at",
   "license": "MIT",
   "contributors": [
