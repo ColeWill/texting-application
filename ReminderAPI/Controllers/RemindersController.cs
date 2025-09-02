@@ -119,5 +119,17 @@ namespace ReminderApi.Controllers
         return StatusCode(500, $"An error occurred while deleting the reminder: {ex.Message}");
       }
     }
+
+    // GET: api/reminders/upcoming
+    [HttpGet("upcoming")]
+    public async Task<ActionResult<IEnumerable<Reminder>>> GetUpcomingReminders()
+    {
+      var allReminders = await _reminderService.GetAllRemindersAsync();
+      var upcomingReminders = allReminders
+        .Where(r => r.ScheduledDateTime > DateTime.UtcNow && !r.IsCompleted)
+        .OrderBy(r => r.ScheduledDateTime);
+      Console.WriteLine(upcomingReminders);
+      return Ok(upcomingReminders);
+    }
   } // Controller
 }
