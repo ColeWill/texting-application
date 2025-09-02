@@ -1,8 +1,21 @@
-import type { Config } from 'jest';
-
-const jestConfig: Config = {
-  preset: 'jest-preset-angular',
-  setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
+globalThis.ngJest = {
+  skipNgcc: true,
+  tsconfig: "tsconfig.spec.json", // this is the project root tsconfig
 };
 
-export default jestConfig;
+/** @type {import('@jest/types').Config.InitialOptions} */
+module.exports = {
+  preset: "jest-preset-angular",
+  testEnvironment: "jsdom",
+  setupFilesAfterEnv: ["<rootDir>/setup-jest.ts"],
+  transform: {
+    "^.+\\.ts$": "ts-jest", // Only transform .ts files
+  },
+  transformIgnorePatterns: [
+    "/node_modules/(?!flat)/", // Exclude modules except 'flat' from transformation
+  ],
+  moduleDirectories: ["node_modules", "src"],
+  fakeTimers: {
+    enableGlobally: true,
+  },
+};
