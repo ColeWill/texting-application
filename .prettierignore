@@ -4,3 +4,4 @@ documentation
 e2e
 eslint.config.mjs
 tsconfig.spec.json
+.husky

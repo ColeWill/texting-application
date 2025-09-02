@@ -1,8 +1,8 @@
 {
-  "name": "angular-starter",
+  "name": "texting-app",
   "version": "0.0.1",
-  "description": "The Angular starter / boilerplate project to start a new enterprise project",
-  "author": "Wilfried Lucha <wilfried@lucha.at>",
+  "description": "Text reminder application, Angular Front-End, ASP.NET Core Backend, and built with an Angular Starter Repo ",
+  "author": "Cole Williams <wcole2222@gmail.com>",
   "homepage": "https://lucha.at",
   "license": "MIT",
   "contributors": [
@@ -47,7 +47,7 @@
     "compodoc": "npx compodoc -p tsconfig.app.json",
     "analyze": "source-map-explorer dist/angular-starter/**/*.js",
     "prettier": "prettier --write \"src/app/**/*.{js,json,css,scss,less,md,ts,html,component.html}\"",
-    "prepare": "husky install",
+    "prepare": "husky",
     "audit": "auditjs ossi",
     "version": "auto-changelog -p && git add CHANGELOG.md",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
@@ -126,7 +126,11 @@
     "typescript": "5.8.3"
   },
   "lint-staged": {
-    "*.{js,json,css,scss,less,md,ts,html,component.html}": [
+    "*.{ts}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{js,json,css,scss,less,md,html,component.html}": [
       "prettier --write"
     ]
   }
