@@ -45,7 +45,7 @@ export default [{
         sourceType: "script",
 
         parserOptions: {
-            project: ["tsconfig.*?.json"],
+            project: ["tsconfig.*?.json", "cypress/tsconfig.json"],
             createDefaultProgram: true,
         },
     },
